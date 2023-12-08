@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Deep Inverse</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="stylesheet" href="./website/index.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid text-center">
+    <div class="row content">
+        <h1 class="display-1">How Good Are Deep GenerativeModels for <br> Solving Inverse Problems?</h1>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2">
+            <a href="https://sites.google.com/view/niopeng/home"><p class="name">Shichong Peng</p></a>
+            <p class="affiliation">APEX Lab<br>Simon Fraser University</p>
+        </div>
+        <div class="col-sm-2">
+            <a href="https://amoazeni75.github.io/"><p class="name">Alireza Moazeni</p></a>
+            <p class="affiliation">APEX Lab<br>Simon Fraser University</p>
+        </div>
+        <div class="col-sm-2">
+            <a href="https://www.math.ias.edu/~ke.li/"><p class="name">Ke Li</p></a>
+            <p class="affiliation">APEX Lab<br>Simon Fraser University
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
+  <div class="col-sm-4 sidenav text-left">
+      <div class="container-fluid">
+          <h3 class="shift">Contents</h3>
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="#abstract">Abstract</a></li>
+        <li><a href="#uncertainty">Uncertainty Quantification</a></li>
+        <li><a href="#valid">Output Validity</a></li>
+        <li><a href="#citation">Citation</a></li>
+      </ul><br>
+      </div>
+
+    </div>
+
+  <div class="col-sm-4 sidenav barright text-left">
+      <div class="container-fluid">
+          <h3>Links</h3>
+          <div class="row">
+              <div class="col-sm-6">
+                  <a href="./contents/paper.pdf"><img src="./website/paper_icon.jpg" alt="Paper" width=48px></a>
+                  <p>Paper</p>
+              </div>
+              <div class="col-sm-6">
+                <a href="./contents/poster.pdf"><img src="./website/poster.png" alt="Poster" width=48px></a>
+                <p>Poster</p>
+              </div>
+          </div>
+      </div>
+    </div>
+
+  <div class="row content">
+    <div class="col-sm-3">
+    </div>
+
+    <div class="col-sm-6 text-left">
+
+      <h2 id="abstract">Abstract</h2>
+      <p>Deep generative models, such as diffusion models, GANs, and IMLE, have shown impressive capability in tackling inverse
+      problems. However, the validity of model-generated solutions w.r.t. the forward problem and the reliability of
+      associated uncertainty estimates remain understudied. This study evaluates recent diffusion-based, GAN-based, and
+      IMLE-based methods on three inverse problems, i.e., 16x super-resolution, colourization, and image decompression.
+      We assess the validity of these models' outputs as solutions to the inverse problems and conduct a thorough analysis of
+      the reliability of the models' estimates of uncertainty over the solution.
+      Overall, we find that the IMLE-based <a href="https://niopeng.github.io/CHIMLE/">CHIMLE</a> method outperforms other methods in terms of producing valid solutions and
+      reliable uncertainty estimates.
+    </p>
+
+      <h2 id="uncertainty">Uncertainty Quantification</h2>
+        <p>We measure the model uncertainty using a sampling-based conformal prediction method from <a href="https://arxiv.org/pdf/2211.09795.pdf">Horwitz et al.</a>. The constructed confidence
+        intervals are shown below:
+        </p>
+        <h3>16x Super-Resolution</h3>
+        <img src="./website/sr.png" alt="Description of image" style="display: block; margin: auto; width: 100%; height: auto; margin-bottom: 20px;">
+        <h3>Image Colourization</h3>
+        <img src="./website/col.png" alt="Description of image" style="display: block; margin: auto; width: 100%; height: auto; margin-bottom: 20px;">
+        <h3>Image Decompression</h3>
+        <img src="./website/dc.png" alt="Description of image" style="display: block; margin: auto; width: 100%; height: auto; margin-bottom: 20px;">
+        
+
+        <h2 id="valid">Output Validity</h2>
+        <p>We evaluate the output validity of each method by comparing the original input to the solution to the forward problem
+        applied to the generated image.
+        </p>
+        <img src="./website/table.png" alt="Description of image"
+          style="display: block; margin: auto; width: 100%; height: auto; margin-bottom: 20px;">
+
+        <hr>
+
+        <div id="citation">
+        <h2>Citation</h2>
+            <pre><code>@inproceedings{
+            peng2023how,
+            title={How Good Are Deep Generative Models for Solving Inverse Problems?},
+            author={Shichong Peng and Alireza Moazeni and Ke Li},
+            booktitle={NeurIPS 2023 Workshop on Deep Learning and Inverse Problems},
+            year={2023}
+            }</code></pre>
+          </div>
+        </div>
+
+
+
+    <div class="col-sm-3 sidenav">
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    var show_option = 4;
+    $(document).ready(function(){
+      $('.my-carousel').slick({
+        centerMode: true,
+	   dots: true,
+	  centerPadding: '20px',
+	  slidesToShow: 3,
+	  infinite: true,
+	  autoplay: true,
+  	  // autoplaySpeed: 2000,
+  	  autoplaySpeed: 4000,
+  	  arrows: true,
+  	  focusOnSelect: true,
+  	  slidesToScroll: 3,
+  	  responsive: [
+    {
+      breakpoint: 720,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 512,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+      });
+    });
+
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 600, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+
+  </script>
+
+
+
+</body>
+</html>
